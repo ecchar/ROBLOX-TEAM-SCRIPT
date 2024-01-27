@@ -1,0 +1,18 @@
+game.Players.PlayerAdded:Connect(function(newPlayer)
+	local grouprank = newPlayer:GetRankInGroup(9274371) -- Change this ID to your Roblox Group ID
+	local TeamName = ""
+	if grouprank >= 25 then -- >= Means if the GroupRank is above or Equil to 255 they will be put into that TeamName.
+		TeamName = "Corporate Team" -- Change this to match what you called your teams in the Teams folder, For example if you made a team called Members, You change the "Name" in the script to "Members"
+	elseif grouprank >= 23 then
+		TeamName = "Development Team"
+	elseif grouprank >= 14 then
+		TeamName = "Executive Team"
+	elseif grouprank >= 7 then
+		TeamName = "Management Team"
+	elseif grouprank >= 0 then
+		TeamName = "Cafe Visitor"
+    elseif grouprank >= 2 then
+		TeamName = "Assistant Team"
+	end
+	newPlayer.TeamColor = game.Teams[TeamName].TeamColor
+end)
